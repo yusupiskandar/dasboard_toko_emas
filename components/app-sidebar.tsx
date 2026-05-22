@@ -59,27 +59,58 @@ const data = {
         {
           title: "Brand Emas",
           url: "#",
-          icon: IconGalaxy,
+        },
+        {
+          title: "Satuan Barang",
+          url: "#",
+        },
+        {
+          title: "Gudang",
+          url: "#",
+        },
+        {
+          title: "Kadar Emas",
+          url: "#",
+        },
+        {
+          title: "Tambah Barang",
+          url: "#",
+        },
+        {
+          title: "Data Barang",
+          url: "#",
+        },
+        {
+          title: "Mutasi Barang",
+          url: "#",
+        },
+        {
+          title: "Stock Opname",
+          url: "#",
+        },
+        {
+          title: "Laporan Persediaan",
+          url: "#",
         },
       ],
     },
     {
-      title: "Lifecycle",
+      title: "Pelanggan",
       url: "#",
       icon: IconListDetails,
     },
     {
-      title: "Analytics",
+      title: "Pembeli",
       url: "#",
       icon: IconChartBar,
     },
     {
-      title: "Projects",
+      title: "Penjual",
       url: "#",
       icon: IconFolder,
     },
     {
-      title: "Team",
+      title: "Pegawai",
       url: "#",
       icon: IconUsers,
     },
