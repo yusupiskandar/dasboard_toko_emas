@@ -58,7 +58,7 @@ const data = {
         },
         {
           title: "Brand Emas",
-          url: "#",
+          url: "/dashboard/brand",
         },
         {
           title: "Satuan Barang",
