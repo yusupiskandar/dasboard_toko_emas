@@ -1,6 +1,7 @@
 "use client"
 
-import { IconCirclePlusFilled, IconMail, type Icon } from "@tabler/icons-react"
+import { useState } from "react"
+import { IconChevronRight, IconCirclePlusFilled, IconMail, type Icon } from "@tabler/icons-react"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -9,16 +10,79 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+
+interface NavItem {
+  title: string
+  url: string
+  icon?: Icon
+  isActive?: boolean
+  items?: {
+    title: string
+    url: string
+  }[]
+}
+
+function NavMainItem({ item }: { item: NavItem }) {
+  const hasSubItems = item.items && item.items.length > 0
+  const [isOpen, setIsOpen] = useState(item.isActive || false)
+
+  if (!hasSubItems) {
+    return (
+      <SidebarMenuItem>
+        <SidebarMenuButton asChild tooltip={item.title}>
+          <a href={item.url}>
+            {item.icon && <item.icon />}
+            <span>{item.title}</span>
+          </a>
+        </SidebarMenuButton>
+      </SidebarMenuItem>
+    )
+  }
+
+  return (
+    <SidebarMenuItem>
+      <div className="flex flex-col w-full">
+        <SidebarMenuButton
+          tooltip={item.title}
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-full justify-between"
+        >
+          <span className="flex items-center gap-2">
+            {item.icon && <item.icon />}
+            <span>{item.title}</span>
+          </span>
+          <IconChevronRight
+            className={`ml-auto size-4 transition-transform duration-200 ${
+              isOpen ? "rotate-90" : ""
+            }`}
+          />
+        </SidebarMenuButton>
+        {isOpen && (
+          <SidebarMenuSub>
+            {item.items?.map((subItem) => (
+              <SidebarMenuSubItem key={subItem.title}>
+                <SidebarMenuSubButton asChild>
+                  <a href={subItem.url}>
+                    <span>{subItem.title}</span>
+                  </a>
+                </SidebarMenuSubButton>
+              </SidebarMenuSubItem>
+            ))}
+          </SidebarMenuSub>
+        )}
+      </div>
+    </SidebarMenuItem>
+  )
+}
 
 export function NavMain({
   items,
 }: {
-  items: {
-    title: string
-    url: string
-    icon?: Icon
-  }[]
+  items: NavItem[]
 }) {
   return (
     <SidebarGroup>
@@ -44,15 +108,11 @@ export function NavMain({
         </SidebarMenu>
         <SidebarMenu>
           {items.map((item) => (
-            <SidebarMenuItem key={item.title}>
-              <SidebarMenuButton tooltip={item.title}>
-                {item.icon && <item.icon />}
-                <span>{item.title}</span>
-              </SidebarMenuButton>
-            </SidebarMenuItem>
+            <NavMainItem key={item.title} item={item} />
           ))}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
   )
 }
+

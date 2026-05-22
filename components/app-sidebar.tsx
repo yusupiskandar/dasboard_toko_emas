@@ -10,6 +10,7 @@ import {
   IconFileDescription,
   IconFileWord,
   IconFolder,
+  IconGalaxy,
   IconHelp,
   IconInnerShadowTop,
   IconListDetails,
@@ -42,8 +43,25 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/dashboard",
       icon: IconDashboard,
+    },
+    {
+      title: "Persedian Emas",
+      url: "#",
+      icon: IconFolder,
+      isActive: true,
+      items: [
+        {
+          title: "Kategori Barang",
+          url: "/dashboard/kategori",
+        },
+        {
+          title: "Brand Emas",
+          url: "#",
+          icon: IconGalaxy,
+        },
+      ],
     },
     {
       title: "Lifecycle",
