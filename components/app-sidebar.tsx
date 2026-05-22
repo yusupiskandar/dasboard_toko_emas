@@ -66,7 +66,7 @@ const data = {
         },
         {
           title: "Gudang",
-          url: "#",
+          url: "/dashboard/gudang",
         },
         {
           title: "Kadar Emas",
