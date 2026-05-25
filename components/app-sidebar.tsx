@@ -62,7 +62,7 @@ const data = {
         },
         {
           title: "Satuan Barang",
-          url: "#",
+          url: "/dashboard/satuan",
         },
         {
           title: "Gudang",
@@ -70,7 +70,7 @@ const data = {
         },
         {
           title: "Kadar Emas",
-          url: "#",
+          url: "/dashboard/kadar",
         },
         {
           title: "Tambah Barang",

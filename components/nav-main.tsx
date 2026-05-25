@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { IconChevronRight, IconCirclePlusFilled, IconMail, type Icon } from "@tabler/icons-react"
 
 import { Button } from "@/components/ui/button"
@@ -34,10 +35,10 @@ function NavMainItem({ item }: { item: NavItem }) {
     return (
       <SidebarMenuItem>
         <SidebarMenuButton asChild tooltip={item.title}>
-          <a href={item.url}>
+          <Link href={item.url}>
             {item.icon && <item.icon />}
             <span>{item.title}</span>
-          </a>
+          </Link>
         </SidebarMenuButton>
       </SidebarMenuItem>
     )
@@ -66,9 +67,9 @@ function NavMainItem({ item }: { item: NavItem }) {
             {item.items?.map((subItem) => (
               <SidebarMenuSubItem key={subItem.title}>
                 <SidebarMenuSubButton asChild>
-                  <a href={subItem.url}>
+                  <Link href={subItem.url}>
                     <span>{subItem.title}</span>
-                  </a>
+                  </Link>
                 </SidebarMenuSubButton>
               </SidebarMenuSubItem>
             ))}
