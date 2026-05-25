@@ -74,7 +74,7 @@ const data = {
         },
         {
           title: "Tambah Barang",
-          url: "#",
+          url: "/dashboard/tambah-barang",
         },
         {
           title: "Data Barang",
